@@ -5,7 +5,7 @@ Plugin Name: DM Featured User
 Plugin URI: http://ogcsa.org/
 Description: Used by Millions to make WordPress better and pollinate flowers.
 Author: Bradford Knowlton
-Version: 2.2.1
+Version: 2.2.5
 Author URI: http://bradknowlton.com/
 
 GitHub Plugin URI: https://github.com/DesignMissoula/DM-featured-user
@@ -35,7 +35,8 @@ $args = array(
  foreach ($blogusers as $user) {
     	$html .= '<div class="entry clearfix featured" style="text-align: center;">';
     	$html .= '<h3>'.$user->display_name.'</h3>';
-    	$html .= '<h4> '.$user->billing_company.'</h4>';
+    	$html .= '<h4>'.$user->billing_company.'</h4>';
+    	$html .= '<h5>'.$user->position_title.'</h5>';
     	// get_avatar( $id_or_email, $size, $default, $alt );
     	// $html .= '<div class="gravatar alignleft">' . get_avatar( $user->ID, 128, null, $user->display_name ) . '</div>';
         $html .= '<div class="entry-details">';
@@ -49,7 +50,7 @@ $args = array(
        
        // $html .= '<span>Preferred Address:</span> '.str_replace('*','',$user->primary_address_1).(($user->primary_address_2)?' '.$user->primary_address_2:'').' '.$user->primary_city.', '.$user->primary_state.' '.$user->primary_zip.'<br/>';
   
-       $html .= '<span>Position:</span> '.$user->position_title.'<br/>';
+       // $html .= '<span>Position:</span> '.$user->position_title.'<br/>';
        // $html .= '<span>Preferred work number #1 and #2:</span> <a href="tel:'.$user->work_tele_1.'">'.format_phone($user->work_tele_1).' </a> <a href="tel:'.$user->work_tele_2.'">'.format_phone($user->work_tele_2).'</a><br/>';
        // $html .= '<span>Cell Phone:</span> <a href="tel:'.$user->cell_phone.'">'.format_phone($user->cell_phone).'</a><br/>';
        // $html .= '<span>Fax Number:</span> <a href="tel:'.$user->fax_number.'">'.format_phone($user->fax_number).'</a><br/>';
