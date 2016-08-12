@@ -5,7 +5,7 @@ Plugin Name: DM Featured User
 Plugin URI: http://ogcsa.org/
 Description: Used by Millions to make WordPress better and pollinate flowers.
 Author: Bradford Knowlton
-Version: 2.2.5
+Version: 2.3.5
 Author URI: http://bradknowlton.com/
 
 GitHub Plugin URI: https://github.com/DesignMissoula/DM-featured-user
@@ -21,18 +21,20 @@ function featured_func( $atts ) {
 
 
 $args = array( 
-						'orderby' => 'meta_value', 
+						'orderby' => 'registered', 
 						'meta_key' => 'last_name',
 						'role' => 'member',
 						'number' => '999',
 						'fields' => 'all_with_meta',
-						'include' => array( $a['user'] ),
-						
+						// 'include' => array( $a['user'] ),
+						'number' => '4'
 						 );
 		$blogusers = get_users($args); //subscriber		
 
+$html = '<div class="clearfix grid">';
 
  foreach ($blogusers as $user) {
+ 		$html .= '<div class="sponsor column-1-4 mobile-column-1-2">';
     	$html .= '<div class="entry clearfix featured" style="text-align: center;">';
     	$html .= '<h3>'.$user->display_name.'</h3>';
     	$html .= '<h4>'.$user->billing_company.'</h4>';
@@ -62,8 +64,11 @@ $args = array(
   
        $html .= '</div><!-- end details -->';
         $html .= '</div><!-- end entry -->';
+         $html .= '</div><!-- end column -->';
+        
     }
 
+	 $html .= '</div><!-- end entry -->';
 
 
     return $html;
