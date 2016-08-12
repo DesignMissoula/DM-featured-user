@@ -5,7 +5,7 @@ Plugin Name: DM Featured User
 Plugin URI: http://ogcsa.org/
 Description: Used by Millions to make WordPress better and pollinate flowers.
 Author: Bradford Knowlton
-Version: 2.3.5
+Version: 2.3.6
 Author URI: http://bradknowlton.com/
 
 GitHub Plugin URI: https://github.com/DesignMissoula/DM-featured-user
@@ -22,6 +22,7 @@ function featured_func( $atts ) {
 
 $args = array( 
 						'orderby' => 'registered', 
+						'order' => 'DESC',
 						'meta_key' => 'last_name',
 						'role' => 'member',
 						'number' => '999',
